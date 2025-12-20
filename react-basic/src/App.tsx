@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+import { BasicClass as CCBasic } from './cc/Basic.tsx'
+import { BasicFunction } from './fc/Basic.tsx'
+import { StateFunction } from './fc/State.tsx'
+import { PropsFunction } from './fc/Props.tsx'
+import { ConditionFunction } from './fc/Condition.tsx'
+import { CustomEventFunction } from './fc/CustomEvent.tsx'
+import { UseState } from './hooks/useState.tsx'
+import { UseReducerFunction } from './hooks/useReducer.tsx'
+import { UseContextFunction } from './hooks/useContext.tsx'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div>hello World</div>
+      <CCBasic name="jasmine" />
+      <BasicFunction />
+      <StateFunction />
+      <PropsFunction name="jasmine" />
+      <ConditionFunction />
+      <UseState />
+      <UseReducerFunction />
+      <UseContextFunction />
+      <CustomEventFunction HandelEvent={(ev) => console.log('i am HandleEvent', ev)} />
     </>
   )
 }
-
 export default App
