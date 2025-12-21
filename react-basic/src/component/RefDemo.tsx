@@ -21,9 +21,10 @@ export const ComplexRefComponent = () => {
   }, [])
   return (
     <div>
-      <h2 ref={(node) => (refs.current.h1 = node)}>1</h2>
+      hello
+      {/* <h2 ref={(node) => (refs.current.h1 = node)}>1</h2>
       <h2 ref={(node) => (refs.current.h2 = node)}>2</h2>
-      <h2 ref={(node) => (refs.current.h3 = node)}>3</h2>
+      <h2 ref={(node) => (refs.current.h3 = node)}>3</h2> */}
     </div>
   )
 }

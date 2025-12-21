@@ -13,6 +13,10 @@ import './App.css'
 // 进阶页面
 import { SingleRefComponent, ComplexRefComponent } from './component/RefDemo'
 import { ForwardedRefDemo } from './component/ForwardRef'
+import { MemoDemo } from './component/MemoDemo'
+import { UseImperativeHandleDemo } from './hooksDemo/useImperative'
+import { UseTransitionDemo } from './hooksDemo/useTransition'
+import { WindowWidthDemo } from './hooksDemo/useSyncExternalStoreDemo'
 function App() {
   return (
     <>
@@ -33,7 +37,11 @@ function App() {
       <div>进阶页面</div>
       <SingleRefComponent />
       <ComplexRefComponent />
-      <ForwardedRefDemo /> 
+      <ForwardedRefDemo />
+      <MemoDemo />
+      <UseImperativeHandleDemo />
+      <UseTransitionDemo />
+      <WindowWidthDemo />
     </>
   )
 }
