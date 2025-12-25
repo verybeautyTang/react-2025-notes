@@ -1,10 +1,25 @@
+// 简单模拟 React 的时间切片机制
+let queue = []
+let index = 0
+
+const useState = (initialState) => {
+  queue[index] = initialState
+  function update(state) {
+    index++
+    queue.push(state)
+  }
+  return [queue[index], update]
+}
+
+const [count, setCount] = useState(0)
 // 数据
-let count = 0
+// let count = 0
 // 监听点击事件
 window.addEventListener(
   'click',
   () => {
-    count++
+    setCount(queue[index] + 1)
+    // count++
     // 每次点击后重新渲染
     // renderer()
   },
@@ -12,10 +27,10 @@ window.addEventListener(
 )
 // 渲染函数
 const renderer = () => {
-  document.body.innerHTML = `<h1>点击了${count}次</h1>`
+  document.body.innerHTML = `<h1>点击了${queue[index]}次</h1>`
 }
 // 初始渲染
-// renderer()
+renderer()
 
 // 使用requestIdleCallback实现空闲时间渲染（模拟时间切片）
 // 工作循环
@@ -28,16 +43,31 @@ const renderer = () => {
 
 // 我们需要知道什么时候数据发生变化了，只有数据发生变化了才要去做渲染
 // 这里我们可以引入一个标志位来控制是否需要渲染
-let needsRender = count
+let preCount = count
 
 // 修改点击事件监听器，设置标志位为true
 // 这个变的过程，就是 diff 的过程
 
+const reconcile = () => {
+  // diff 算法
+  //  尽可能少的更新
+  // 尽可能大的复用
+  // 面试题： 为什么我们要使用 key？
+  if (preCount !== queue[index]) {
+    renderer()
+    preCount = queue[index]
+  }
+}
+
+// 调和的过程
+// 在浏览器空闲的时候去做这个操作，在 vue3 里面不需要调度器
+// vue3 是通过 proxy 去监听数据变化的，可以更加精准的知道数据什么时候变化了
+// 两个阶段 tracking 和 trigger
 const workFlow = () => {
-  if (needsRender !== count) renderer()
+  reconcile()
   requestIdleCallback(() => {
     // console.log(2687326)
     workFlow()
   })
 }
-workFlow()
+reconcile()
