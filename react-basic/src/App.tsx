@@ -11,12 +11,15 @@ import './App.css'
 // import { UseContextFunction } from './hooks/useContext.tsx'
 
 // 进阶页面
-import { SingleRefComponent, ComplexRefComponent } from './component/RefDemo'
-import { ForwardedRefDemo } from './component/ForwardRef'
-import { MemoDemo } from './component/MemoDemo'
-import { UseImperativeHandleDemo } from './hooksDemo/useImperative'
-import { UseTransitionDemo } from './hooksDemo/useTransition'
-import { WindowWidthDemo } from './hooksDemo/useSyncExternalStoreDemo'
+// import { SingleRefComponent, ComplexRefComponent } from './component/RefDemo'
+// import { ForwardedRefDemo } from './component/ForwardRef'
+// import { MemoDemo } from './component/MemoDemo'
+// import { UseImperativeHandleDemo } from './hooksDemo/useImperative'
+// import { UseTransitionDemo } from './hooksDemo/useTransition'
+// import { WindowWidthDemo } from './hooksDemo/useSyncExternalStoreDemo'
+
+// 状态管理
+import { UseStateDemo } from './hooks/useStateDemo'
 function App() {
   return (
     <>
@@ -34,14 +37,17 @@ function App() {
         <CustomEventFunction HandelEvent={(ev) => console.log('i am HandleEvent', ev)} />
       </div> */}
 
-      <div>进阶页面</div>
+      {/* <div>进阶页面</div>
       <SingleRefComponent />
       <ComplexRefComponent />
       <ForwardedRefDemo />
       <MemoDemo />
       <UseImperativeHandleDemo />
       <UseTransitionDemo />
-      <WindowWidthDemo />
+      <WindowWidthDemo /> */}
+
+      {/* 状态管理 */}
+      <UseStateDemo />
     </>
   )
 }
