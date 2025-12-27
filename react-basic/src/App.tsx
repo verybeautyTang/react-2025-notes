@@ -20,6 +20,8 @@ import './App.css'
 
 // 状态管理
 import { UseStateDemo } from './hooks/useStateDemo'
+import { UseReducerDemo } from './hooks/useReducerDemo'
+
 function App() {
   return (
     <>
@@ -48,6 +50,7 @@ function App() {
 
       {/* 状态管理 */}
       <UseStateDemo />
+      <UseReducerDemo />
     </>
   )
 }
