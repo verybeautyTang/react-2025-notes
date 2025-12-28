@@ -22,6 +22,7 @@ import './App.css'
 import { UseStateDemo } from './hooks/useStateDemo'
 import { UseReducerDemo } from './hooks/useReducerDemo'
 import { UseContextDemo } from './hooks/useContextDemo'
+import { UseCustomRedux } from './hooks/useCustomRedux'
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
       <UseStateDemo />
       <UseReducerDemo />
       <UseContextDemo />
+      <UseCustomRedux />
     </>
   )
 }

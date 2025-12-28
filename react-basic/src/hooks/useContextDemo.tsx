@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, type PropsWithChildren } from 'react'
 
 interface ThemeContextType {
   theme: string
@@ -8,18 +8,34 @@ interface LocaleContextType {
   locale: string
   setLocale: (locale: string) => void
 }
+
 const ThemeContext = createContext<ThemeContextType | null>(null)
 const LocaleContext = createContext<LocaleContextType | null>(null)
 
 // 把子组件拆分出来，更清晰，形成子组件的状态隔离
-const ThemeContextProvider = ThemeContext.Provider
-const LocaleContextProvider = LocaleContext.Provider
+const ThemeContextProvider: React.FC<PropsWithChildren<ThemeContextType>> = ({
+  theme,
+  setTheme,
+  children,
+}) => {
+  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>
+}
+
+// 把子组件拆分出来，更清晰，形成子组件的状态隔离
+const LocaleContextProvider: React.FC<PropsWithChildren<LocaleContextType>> = ({
+  locale,
+  setLocale,
+  children,
+}) => {
+  return <LocaleContext.Provider value={{ locale, setLocale }}>{children}</LocaleContext.Provider>
+}
+
 export const UseContextDemo = () => {
   const [theme, setTheme] = useState('light')
   const [locale, setLocale] = useState('en')
   return (
-    <ThemeContextProvider value={{ theme, setTheme }}>
-      <LocaleContextProvider value={{ locale, setLocale }}>
+    <ThemeContextProvider theme={theme} setTheme={setTheme}>
+      <LocaleContextProvider locale={locale} setLocale={setLocale}>
         <CheckButton />
       </LocaleContextProvider>
     </ThemeContextProvider>
