@@ -1,4 +1,4 @@
-import { useRef, useSyncExternalStore } from 'react'
+import { useSyncExternalStore } from 'react'
 import { createStore } from '../lib/redux.js'
 
 const reducer = (state, action) => {
@@ -13,7 +13,6 @@ const reducer = (state, action) => {
 }
 const { getState, dispatch, subscribe } = createStore(reducer, { count: 111 })
 export const UseCustomRedux = () => {
-  console.log('first')
   const state = useSyncExternalStore(subscribe, getState, getState)
   return (
     <div>

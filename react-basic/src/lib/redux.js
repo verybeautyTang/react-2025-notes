@@ -23,6 +23,8 @@ export function createStore(reducer, initialState) {
       listeners.splice(index, 1)
     }
   }
+
+
   // 获取所有的 state
   function getState() {
     return state
