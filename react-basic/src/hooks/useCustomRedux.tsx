@@ -16,7 +16,7 @@ export const UseCustomRedux = () => {
   const state = useSyncExternalStore(subscribe, getState, getState)
   return (
     <div>
-      <div>my count is. {state.count}4567890</div>
+      <div>my count is. {state.count}45670</div>
       <button onClick={() => dispatch({ type: 'INCREMENT' })}>增加</button>
     </div>
   )
