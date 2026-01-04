@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:es": "eslint ."
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "9.39.2",
+    "@eslint/js": "9.39.2",
+    "typescript": "5.9.3",
+    "typescript-eslint":"8.51.0"
+  }
 }
